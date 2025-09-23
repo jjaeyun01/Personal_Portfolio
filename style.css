@@ -98,6 +98,60 @@ nav .nav-links a.selected{
 
 .main img{
     width: 500px;
-    height: 600px;
+    height: 500px;
     border-radius: 140px;
+}
+
+.experience{
+    padding: 60px 148px;
+    background-color: #dbedf2;
+}
+
+.experience .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.experience .header h4{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.experience .header a{
+    color: #303f9f;
+}
+
+.experience .posts{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.experience .posts .post-item{
+    background-color: #fff;
+    padding: 24px;
+    width: 460px;
+}
+
+.experience .posts .post-item h3{
+    font-size: 26px;
+    margin-bottom: 18px;
+}
+
+.experience .posts .post-item .info{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.experience .posts .post-item .info h5{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.experience .posts .post-item p{
+    width: 400px;
+    
 }
