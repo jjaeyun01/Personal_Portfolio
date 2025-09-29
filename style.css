@@ -153,5 +153,18 @@ nav .nav-links a.selected{
 
 .experience .posts .post-item p{
     width: 400px;
-    
+
+}
+
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark nav {
+    background-color: #1e1e1e;
+}
+
+body.dark .experience {
+    background-color: #2a2a2a;
 }

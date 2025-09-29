@@ -1,23 +1,20 @@
-const addButton = document.querySelector('#add-button');
+const toggleBtn = document.getElementById("dark-mode-toggle");
 
-addButton.addEventListener('click', () => {
-  const input = document.querySelector('#input');
-  const text = input.value.trim();
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
 
-  if (text !== '') {
-    addToList(text);
-    input.value = '';
-    input.focus();
+  if (document.body.classList.contains("dark")) {
+    toggleBtn.textContent = "Lightmode";
+  } else {
+    toggleBtn.textContent = "Darkmode";
   }
+
+  // 다크모드 상태 저장 (localStorage)
+  localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
 });
 
-function addToList(text) {
-  const list = document.querySelector('#list');
-
-  const newListItem = document.createElement('li'); // 새로운 li 요소를 만듬
-  newListItem.classList.add('list-item'); // list-item 클래스를 더해줌
-
-  newListItem.innerHTML = text; //사용자 입력 문자를 li사이에 넣음
-
-  list.appendChild(newListItem); // 리스트에 새로 만든 li를 추가
+// 새로고침 시 저장된 테마 유지
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+  toggleBtn.textContent = "Lightmode";
 }
