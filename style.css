@@ -38,16 +38,22 @@ nav a.selected {
   margin-right: 10px;
 }
 
+nav .logo{
+    display: flex;
+    align-items: center;    
+}
+
 .home {
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 100vh;
-  padding: 60px;
+  padding: 0px;
+  margin-top: -60px;
 }
 
 .intro h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 .highlight {
@@ -55,8 +61,8 @@ nav a.selected {
 }
 
 .profile-img {
-  width: 300px;
-  border-radius: 50%;
+  width: 400px;
+  border-radius: 80px;
   box-shadow: 0 0 30px rgba(108, 99, 255, 0.5);
 }
 
@@ -113,6 +119,13 @@ nav a.selected {
   width: 280px;
   padding: 20px;
   border-radius: 15px;
+}
+
+.project-category {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  color: white;
 }
 
 .more-btn {
@@ -202,3 +215,8 @@ nav a.selected {
   width: 100%;
   height: 100%;
 }
+
+#greeting {
+  transition: opacity 1 s ease-in-out;
+}
+

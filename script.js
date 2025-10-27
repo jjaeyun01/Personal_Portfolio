@@ -1,9 +1,3 @@
-// EmailJS 초기화
-(function () {
-  emailjs.init("YOUR_PUBLIC_KEY");
-})();
-
-// Education / Experience 토글
 const eduBtn = document.getElementById("eduBtn");
 const expBtn = document.getElementById("expBtn");
 const eduBox = document.getElementById("education");
@@ -23,7 +17,6 @@ expBtn.addEventListener("click", () => {
   eduBox.classList.add("hidden");
 });
 
-// Contact form
 const form = document.getElementById("contactForm");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -40,3 +33,18 @@ form.addEventListener("submit", function (e) {
       alert("❌ Failed to send message. Please try again later.");
     });
 });
+
+const greetings = ["Hello🙋", "안녕하세요👋"];
+let index = 0;
+const greetingElement = document.getElementById("greeting");
+
+if (greetingElement) {
+  setInterval(() => {
+    index = (index + 1) % greetings.length;
+    greetingElement.style.opacity = 0;
+    setTimeout(() => {
+      greetingElement.textContent = greetings[index];
+      greetingElement.style.opacity = 1;
+    }, 500);
+  }, 3000);
+}
