@@ -1,20 +1,42 @@
-const toggleBtn = document.getElementById("dark-mode-toggle");
+// EmailJS 초기화
+(function () {
+  emailjs.init("YOUR_PUBLIC_KEY");
+})();
 
-toggleBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
+// Education / Experience 토글
+const eduBtn = document.getElementById("eduBtn");
+const expBtn = document.getElementById("expBtn");
+const eduBox = document.getElementById("education");
+const expBox = document.getElementById("experience");
 
-  if (document.body.classList.contains("dark")) {
-    toggleBtn.textContent = "Lightmode";
-  } else {
-    toggleBtn.textContent = "Darkmode";
-  }
-
-  // 다크모드 상태 저장 (localStorage)
-  localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+eduBtn.addEventListener("click", () => {
+  eduBtn.classList.add("active");
+  expBtn.classList.remove("active");
+  eduBox.classList.remove("hidden");
+  expBox.classList.add("hidden");
 });
 
-// 새로고침 시 저장된 테마 유지
-if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark");
-  toggleBtn.textContent = "Lightmode";
-}
+expBtn.addEventListener("click", () => {
+  expBtn.classList.add("active");
+  eduBtn.classList.remove("active");
+  expBox.classList.remove("hidden");
+  eduBox.classList.add("hidden");
+});
+
+// Contact form
+const form = document.getElementById("contactForm");
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  emailjs
+    .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+    .then(() => {
+      alert("✈️ Message sent successfully!");
+      form.reset();
+      if (window.flyPlane) window.flyPlane();
+    })
+    .catch((err) => {
+      console.error("Send failed:", err);
+      alert("❌ Failed to send message. Please try again later.");
+    });
+});

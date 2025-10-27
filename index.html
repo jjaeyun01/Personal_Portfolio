@@ -1,62 +1,138 @@
 <!DOCTYPE html>
-<html lang="ko", lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>LEE's PORTFOLIO</title>
-  </head>
-  
-  <body>
+<html lang="en">
 
-    <nav>
-      <div class="logo">  
-        <img src="W_logo.png">
-        <a href="#">JAEYOON LEE</a>
-      </div>
-      <div class="nav-links">
-        <a class="selected" href="index.html">Home</a>
-        <a href="Project.html">Project</a>
-        <a href="Personal-project.html">Personal Project</a>
-        <a href="Work-experience.html">Experience</a>
-        <a href="About.html">About</a>
-        <button id="dark-mode-toggle">Darkmode</button>
-      </div>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JAEYOON LEE | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <div class="main">
-      <div class="info">
-        <h1>Hello, I'm Jaeyoon Lee, <br>Software Programmer</br1></h1>
-        <p>Bachelor's degree in Computer Science & Data Science at the University of Wisconsin-Madison.</p>
-        <button>Download Resume</button>
-      </div>
-      <img src="Profile1.jpeg">
+<body class="dark">
+  <nav>
+    <div class="logo">
+      <img src="W_logo.png" />
+      <a href="#">JAEYOON LEE</a>
     </div>
+    <div class="nav-links">
+      <a href="#home" class="selected">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-    <div class="experience">
-      <div class="header">
-          <h4>Experience</h4>
-          <a href="Work-experience.html">View all</a>
+  <section id="home" class="home">
+    <div class="intro">
+      <h1>Hello, 안녕하세요!</h1>
+      <h2>I'm <span class="highlight">Jaeyoon Lee</span><br />Software Programmer</h2>
+      <p>B.S. in Computer Science & Data Science at the University of Wisconsin–Madison (2023–2027)</p>
+    </div>
+    <img class="profile-img" src="your_photo.png" alt="Jaeyoon Lee">
+  </section>
+
+  <section id="about" class="about">
+    <div class="emoji-section">
+      <img src="your_emoji.png" alt="Emoji">
+    </div>
+    <div class="info-section">
+      <div class="button-group">
+        <button id="eduBtn" class="active">Education</button>
+        <button id="expBtn">Experience</button>
       </div>
-      <div class="posts">
-        <div class="post-item">
-          <h3>Sinol Korea</h3>
-          <div class="info">
-            <h5>1 May, 2025 ~ 3 June, 2025</h5>
-            <h5>|</h5>
-            <h5>Data Analyst</h5>
-          </div>
-          <p>What i did.</p>
+
+      <div class="content">
+        <div id="education" class="content-box">
+          <h3>🎓 Education</h3>
+          <p><strong>University of Wisconsin-Madison</strong><br />B.S. Computer Science & Data Science<br />2023 - 2027</p>
+        </div>
+        <div id="experience" class="content-box hidden">
+          <h3>💼 Experience</h3>
+          <p><strong>Sinor Korea</strong> | Seoul<br />Data Engineer Intern<br />May 2025 – June 2025</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="separator">
-      <h4>Project</h4>
+  <section id="projects" class="projects">
+    <h2>💻 Projects</h2>
+    <div class="project-container">
+      <div class="project-card">
+        <h3>Web Portfolio</h3>
+        <p>Personal web portfolio built with HTML, CSS, JS, and Three.js animations.</p>
+      </div>
+      <div class="project-card">
+        <h3>Data Visualization</h3>
+        <p>Analyzed datasets using Python and R to visualize trends in user behavior.</p>
+      </div>
+      <div class="project-card">
+        <h3>AI Chatbot</h3>
+        <p>Built a chatbot prototype integrating OpenAI API with React and Node.js.</p>
+      </div>
     </div>
+    <div class="buttons">
+      <a href="Project.html" class="more-btn">More Team Projects →</a>
+      <a href="PersonalProject.html" class="more-btn">More Personal Projects →</a>
+    </div>
+  </section>
 
-    
+  <section id="skills" class="skills">
+    <h2>⚙️ Technical Skills</h2>
+    <div class="skills-container">
+      <div class="skill-card">
+        <h3>Front-End</h3>
+        <p>React, HTML, CSS, JavaScript</p>
+      </div>
+      <div class="skill-card">
+        <h3>Back-End</h3>
+        <p>Java, Python, Node.js</p>
+      </div>
+      <div class="skill-card">
+        <h3>Database</h3>
+        <p>MySQL, DBeaver</p>
+      </div>
+      <div class="skill-card">
+        <h3>Data Science</h3>
+        <p>R, Python (Pandas, NumPy, Matplotlib)</p>
+      </div>
+    </div>
+  </section>
 
-  </body>
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <div class="contact-form">
+        <h1>Contact Me</h1>
+        <p>Have an opportunity or question? Send me a message ✉️</p>
+
+        <form id="contactForm">
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Your name" required />
+
+          <label>Email</label>
+          <input type="email" name="email" placeholder="Your email" required />
+
+          <label>Company / Team / Personal</label>
+          <input type="text" name="company" placeholder="Company or Personal" required />
+
+          <label>Message</label>
+          <textarea name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+          <button type="submit" class="send-btn">Send Message ✈️</button>
+        </form>
+
+        <a href="Jaeyoon_Lee_Resume.pdf" class="resume-btn" download>📄 Download Resume</a>
+      </div>
+
+      <div class="globe-container">
+        <canvas id="earthCanvas"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="earth.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="script.js"></script>
+</body>
+
 </html>

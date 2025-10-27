@@ -1,170 +1,204 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Heebo', sans-serif;
+:root {
+  --bg-main: #000;
+  --text-main: #fff;
+  --card-bg: #111;
+  --accent: #6c63ff;
 }
 
-a{
-    text-decoration: none;
-    color: #000;
+body {
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: "Poppins", sans-serif;
 }
 
-img{
-    object-fit: cover;
-    object-position: top;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 15px 50px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-nav{
-    padding: 20px 148px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-weight: 600;
+nav a {
+  color: var(--text-main);
+  text-decoration: none;
+  margin: 0 10px;
 }
 
-nav .logo{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+nav a.selected {
+  color: var(--accent);
 }
 
-nav .logo img{
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0);
-    border-radius: 10%;
+.logo img {
+  width: 40px;
+  margin-right: 10px;
 }
 
-nav .logo a{
-    font-size: 15px;
-    color: #3e3e3e;
-    font-weight: bold;
+.home {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  padding: 60px;
 }
 
-nav .nav-links{
-    display: flex;
-    gap: 16px;
+.intro h1 {
+  font-size: 2.5rem;
 }
 
-nav .nav-links a{
-    transition: color 0.3s ease;
+.highlight {
+  color: var(--accent);
 }
 
-nav .nav-links a:hover,
-nav .nav-links a.selected{
-    color: #303f9f;
+.profile-img {
+  width: 300px;
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(108, 99, 255, 0.5);
 }
 
-.main {
-    padding: 0 148px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 50px;
-    height: calc(100vh - 80px);
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+  border-top: 1px solid #222;
 }
 
-.main .info h1{
-    font-size: 44px;
-    margin-bottom: 40px;
+.emoji-section img {
+  width: 200px;
+  margin-right: 50px;
 }
 
-.main .info p{
-    font-size: 16px;
-    margin-bottom: 45px;
-    width: 100%;
+.button-group button {
+  background: #222;
+  color: var(--text-main);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin: 5px;
+  cursor: pointer;
 }
 
-.main .info button{
-    padding: 10px 30px;
-    background: #303f9f;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+.button-group button.active {
+  background: var(--accent);
 }
 
-.main .info button:hover{
-    background: #1a237e;
+.content-box {
+  margin-top: 20px;
 }
 
-.main img{
-    width: 500px;
-    height: 500px;
-    border-radius: 140px;
+.hidden {
+  display: none;
 }
 
-.experience{
-    padding: 60px 148px;
-    background-color: #dbedf2;
+.projects {
+  text-align: center;
+  padding: 100px 0;
 }
 
-.experience .header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 30px;
+.project-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 40px;
 }
 
-.experience .header h4{
-    font-size: 20px;
-    font-weight: bold;
+.project-card {
+  background: var(--card-bg);
+  width: 280px;
+  padding: 20px;
+  border-radius: 15px;
 }
 
-.experience .header a{
-    color: #303f9f;
+.more-btn {
+  display: inline-block;
+  color: var(--accent);
+  margin-top: 40px;
+  text-decoration: none;
 }
 
-.experience .posts{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+.skills {
+  text-align: center;
+  padding: 100px 0;
 }
 
-.experience .posts .post-item{
-    background-color: #fff;
-    padding: 24px;
-    width: 460px;
+.skills-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
-.experience .posts .post-item h3{
-    font-size: 26px;
-    margin-bottom: 18px;
+.skill-card {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 15px;
+  width: 250px;
 }
 
-.experience .posts .post-item .info{
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+  border-top: 1px solid #222;
 }
 
-.experience .posts .post-item .info h5{
-    font-size: 18px;
-    font-weight: 400;
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+  justify-content: center;
+  align-items: center;
 }
 
-.experience .posts .post-item p{
-    width: 400px;
-
+.contact-form {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 15px;
+  width: 350px;
 }
 
-body.dark {
-    background-color: #121212;
-    color: #ffffff;
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  background: #222;
+  border: none;
+  border-radius: 8px;
+  color: var(--text-main);
 }
 
-body.dark nav {
-    background-color: #1e1e1e;
+.send-btn {
+  width: 100%;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
 }
 
-body.dark .experience {
-    background-color: #2a2a2a;
+.resume-btn {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.globe-container {
+  width: 400px;
+  height: 400px;
+}
+
+#earthCanvas {
+  width: 100%;
+  height: 100%;
 }
