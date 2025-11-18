@@ -1,4 +1,5 @@
-import ProjectCard from '../components/ProjectCard';
+import { Link } from "react-router-dom";
+import ProjectCard from "../components/ProjectCard";
 
 function Project() {
   const teamProjects = [
@@ -8,9 +9,9 @@ function Project() {
   ];
 
   const personalProjects = [
-    { 
-      title: "Web Portfolio", 
-      description: "Personal web portfolio built with HTML, CSS, JS, and React." 
+    {
+      title: "Web Portfolio",
+      description: "Personal web portfolio built with HTML, CSS, JS, and React."
     },
     { title: "Personal Project 2", description: "XXX" },
     { title: "Personal Project 3", description: "XXX" }
@@ -23,29 +24,22 @@ function Project() {
       <h3 className="project-category">👥 Team Projects</h3>
       <div className="project-container">
         {teamProjects.map((project, index) => (
-          <ProjectCard 
-            key={index} 
-            title={project.title} 
-            description={project.description} 
-          />
+          <ProjectCard key={index} title={project.title} description={project.description} />
         ))}
       </div>
-      <p>
-        <a href="Project.html" className="more-btn">More Team Projects →</a>
-      </p>
 
       <h3 className="project-category">🧠 Personal Projects</h3>
       <div className="project-container">
         {personalProjects.map((project, index) => (
-          <ProjectCard 
-            key={index} 
-            title={project.title} 
-            description={project.description} 
-          />
+          <ProjectCard key={index} title={project.title} description={project.description} />
         ))}
       </div>
+
+      {/* More Projects 버튼 */}
       <p>
-        <a href="PersonalProject.html" className="more-btn">More Personal Projects →</a>
+        <Link to="/projects" className="more-btn">
+          More Projects →
+        </Link>
       </p>
     </section>
   );

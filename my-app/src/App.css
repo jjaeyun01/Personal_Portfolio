@@ -61,7 +61,7 @@ nav .logo {
 }
 
 .intro {
-  max-width: 600px;
+  max-width: 600px;;
 }
 .intro h1 {
   font-size: 3rem;
@@ -200,19 +200,33 @@ nav .logo {
   padding: 100px 0;
 }
 
+/* 🔥 항상 3개 per row 고정 grid */
 .project-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.projects-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3열 고정 */
+  gap: 2rem;
   margin-top: 40px;
+  justify-items: center;
 }
 
 .project-card {
   background: var(--card-bg);
-  width: 280px;
-  padding: 20px;
-  border-radius: 15px;
+  border-radius: 16px;
+  padding: 30px 25px;
+  text-align: center;
+  width: 330px;   /* 카드 폭 통일 */
+  min-height: 160px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .project-category {
@@ -229,6 +243,61 @@ nav .logo {
   text-decoration: none;
 }
 
+/* ============================
+   MoreProjects Page
+============================ */
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  transition: 0.3s ease;
+  margin-bottom: 25px;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateX(-4px);
+}
+
+.back-btn:hover {
+  background: #333;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  justify-content: center;
+}
+
+.filter-buttons button {
+  padding: 10px 18px;
+  background: #222;
+  border: 1px solid #444;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.filter-buttons button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.filter-buttons button:hover {
+  background: #444;
+}
 
 /* Contact Section (기존 유지) */
 .contact-section {
@@ -298,3 +367,29 @@ nav .logo {
   padding: 80px 0;
   box-sizing: border-box;
 }
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.filter-buttons button {
+  padding: 8px 15px;
+  background: #222;
+  border: 1px solid #444;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.filter-buttons button.active {
+  background: #6c63ff;
+  border-color: #6c63ff;
+}
+
+.filter-buttons button:hover {
+  background: #444;
+}
+
