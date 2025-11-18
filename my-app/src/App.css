@@ -1,38 +1,300 @@
+:root {
+  --bg-main: #000;
+  --text-main: #fff;
+  --card-bg: #111;
+  --accent: #6c63ff;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: "Poppins", sans-serif;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  width: 100%;
   min-height: 100vh;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 15px 50px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  color: var(--text-main);
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+nav a.selected {
+  color: var(--accent);
+}
+
+.logo img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+nav .logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Home Section */
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0px 50px;
+  gap: 120px;
+  margin-top: -60px;
+}
+
+.intro {
+  max-width: 600px;
+}
+.intro h1 {
+  font-size: 3rem;
+}
+
+.highlight {
+  color: var(--accent);
+}
+
+.profile-img {
+  width: 400px;
+  border-radius: 80px;
+  box-shadow: 0 0 30px rgba(108, 99, 255, 0.5);
+}
+
+#greeting {
+  transition: opacity 1s ease-in-out;
+}
+
+/* =========================================
+   About & Skills Section 수정된 부분 (여기만 변경됨)
+   ========================================= */
+
+/* 전체 컨테이너: 세로 정렬 (상단:소개 / 하단:스킬) */
+.about-skills {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 100px 0; /* 상하 여백 */
+  border-top: 1px solid #222;
+  width: 100%;
+}
+
+/* 상단 섹션: 이미지와 텍스트 가로 정렬 */
+.top-section {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: flex-start; /* 위쪽 라인 맞춤 */
+  gap: 80px; /* 이미지와 텍스트 사이 간격 */
+  margin-bottom: 80px; /* 스킬 섹션과의 간격 */
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* 미모지 이미지 스타일 */
+.emoji-section img {
+  width: 250px;
+  object-fit: contain;
+}
+
+/* 오른쪽 텍스트/버튼 영역 */
+.info-section {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px; /* 텍스트 영역 최소 너비 확보 */
+}
+
+.button-group button {
+  background: #222;
+  color: var(--text-main);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px; /* 둥글게 */
+  margin: 5px 5px 5px 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.button-group button.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.content {
+  min-height: 150px;
+  position: relative;
+  margin-top: 10px;
+}
+
+.content-box {
+  width: 100%;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.content-box h3 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 하단 Skills 섹션 */
+.skills-section {
+  text-align: center;
+  width: 100%;
+}
+
+.skills-section h2 {
+  margin-bottom: 40px;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px; /* 너무 퍼지지 않게 제한 */
+}
+
+.skill-card {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 15px;
+  width: 250px;
+  text-align: left; /* 카드 내부 텍스트 정렬 */
+}
+
+.skill-card h3 {
+  color: var(--accent);
+  margin-top: 0;
+}
+
+/* =========================================
+   About & Skills 수정 끝
+   ========================================= */
+
+
+/* Projects Section (기존 유지) */
+.projects {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.project-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.project-card {
+  background: var(--card-bg);
+  width: 280px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.project-category {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 2rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.more-btn {
+  display: inline-block;
+  color: var(--accent);
+  margin-top: 40px;
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* Contact Section (기존 유지) */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+  border-top: 1px solid #222;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 15px;
+  width: 350px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  background: #222;
+  border: none;
+  border-radius: 8px;
+  color: var(--text-main);
+}
+
+.send-btn {
+  width: 100%;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.resume-btn {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.globe-container {
+  width: 400px;
+  height: 400px;
+}
+
+#earthCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+.home .Contact .Project {
+  min-height: 100vh;
+  padding: 80px 0;
+  box-sizing: border-box;
 }

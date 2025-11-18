@@ -1,222 +1,234 @@
 :root {
-  --bg-main: #000;
-  --text-main: #fff;
-  --card-bg: #111;
-  --accent: #6c63ff;
+    --bg-main: #000;
+    --text-main: #fff;
+    --card-bg: #111;
+    --accent: #6c63ff;
 }
 
 body {
-  margin: 0;
-  background: var(--bg-main);
-  color: var(--text-main);
-  font-family: "Poppins", sans-serif;
+    margin: 0;
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-family: "Poppins", sans-serif;
 }
 
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.85);
-  padding: 15px 50px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 15px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav a {
-  color: var(--text-main);
-  text-decoration: none;
-  margin: 0 10px;
+    color: var(--text-main);
+    text-decoration: none;
+    margin: 0 10px;
 }
 
 nav a.selected {
-  color: var(--accent);
+    color: var(--accent);
 }
 
 .logo img {
-  width: 40px;
-  margin-right: 10px;
+    width: 40px;
+    margin-right: 10px;
 }
 
-nav .logo{
+nav .logo {
     display: flex;
-    align-items: center;    
+    align-items: center;
 }
 
 .home {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 100vh;
-  padding: 0px;
-  margin-top: -60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    padding: 0px;
+    margin-top: -60px;
 }
 
 .intro h1 {
-  font-size: 3rem;
+    font-size: 3rem;
 }
 
 .highlight {
-  color: var(--accent);
+    color: var(--accent);
 }
 
 .profile-img {
-  width: 400px;
-  border-radius: 80px;
-  box-shadow: 0 0 30px rgba(108, 99, 255, 0.5);
+    width: 400px;
+    border-radius: 80px;
+    box-shadow: 0 0 30px rgba(108, 99, 255, 0.5);
 }
 
 .about {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 80px 0;
-  border-top: 1px solid #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+    border-top: 1px solid #222;
 }
 
 .emoji-section img {
-  width: 200px;
-  margin-right: 50px;
+    width: 200px;
+    margin-right: 50px;
 }
 
 .button-group button {
-  background: #222;
-  color: var(--text-main);
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  margin: 5px;
-  cursor: pointer;
+    background: #222;
+    color: var(--text-main);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin: 5px;
+    cursor: pointer;
 }
 
 .button-group button.active {
-  background: var(--accent);
+    background: var(--accent);
+}
+
+.content {
+    min-height: 150px;
+    position: relative;
 }
 
 .content-box {
-  margin-top: 20px;
+    margin-top: 20px;
+    position: absolute;
+    width: 200%;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.content-box.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 .projects {
-  text-align: center;
-  padding: 100px 0;
+    text-align: center;
+    padding: 100px 0;
 }
 
 .project-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
 }
 
 .project-card {
-  background: var(--card-bg);
-  width: 280px;
-  padding: 20px;
-  border-radius: 15px;
+    background: var(--card-bg);
+    width: 280px;
+    padding: 20px;
+    border-radius: 15px;
 }
 
 .project-category {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-top: 2rem;
-  color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    color: white;
 }
 
 .more-btn {
-  display: inline-block;
-  color: var(--accent);
-  margin-top: 40px;
-  text-decoration: none;
+    display: inline-block;
+    color: var(--accent);
+    margin-top: 40px;
+    text-decoration: none;
 }
 
 .skills {
-  text-align: center;
-  padding: 100px 0;
+    text-align: center;
+    padding: 100px 0;
 }
 
 .skills-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .skill-card {
-  background: var(--card-bg);
-  padding: 25px;
-  border-radius: 15px;
-  width: 250px;
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 15px;
+    width: 250px;
 }
 
 .contact-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 80px 0;
-  border-top: 1px solid #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+    border-top: 1px solid #222;
 }
 
 .contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 80px;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact-form {
-  background: var(--card-bg);
-  padding: 40px;
-  border-radius: 15px;
-  width: 350px;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 15px;
+    width: 350px;
 }
 
 .contact-form input,
 .contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 8px;
-  background: #222;
-  border: none;
-  border-radius: 8px;
-  color: var(--text-main);
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    background: #222;
+    border: none;
+    border-radius: 8px;
+    color: var(--text-main);
 }
 
 .send-btn {
-  width: 100%;
-  background: var(--accent);
-  border: none;
-  color: #fff;
-  padding: 12px;
-  border-radius: 8px;
-  margin-top: 20px;
-  cursor: pointer;
+    width: 100%;
+    background: var(--accent);
+    border: none;
+    color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
 .resume-btn {
-  display: inline-block;
-  margin-top: 20px;
-  color: var(--accent);
-  text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--accent);
+    text-decoration: none;
 }
 
 .globe-container {
-  width: 400px;
-  height: 400px;
+    width: 400px;
+    height: 400px;
 }
 
 #earthCanvas {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 #greeting {
-  transition: opacity 1 s ease-in-out;
+    transition: opacity 1 s ease-in-out;
 }
-
