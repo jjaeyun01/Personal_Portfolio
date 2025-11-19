@@ -189,11 +189,6 @@ nav .logo {
   margin-top: 0;
 }
 
-/* =========================================
-   About & Skills 수정 끝
-   ========================================= */
-
-
 /* Projects Section (기존 유지) */
 .projects {
   text-align: center;
@@ -201,22 +196,24 @@ nav .logo {
 }
 
 /* 🔥 항상 3개 per row 고정 grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  justify-items: center;    
+  justify-content: center;  
+
+  width: fit-content;     
+  margin: 40px auto 0;  
+}
+
 .project-container {
   width: 100%;
-  max-width: 1000px;
   margin: 40px auto 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
-}
-
-.projects-grid {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3열 고정 */
-  gap: 2rem;
-  margin-top: 40px;
-  justify-items: center;
 }
 
 .project-card {

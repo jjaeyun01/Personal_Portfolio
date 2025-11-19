@@ -22,20 +22,27 @@ function Project() {
       <h2>💻 Projects</h2>
 
       <h3 className="project-category">👥 Team Projects</h3>
-      <div className="project-container">
+      <div className="projects-grid">
         {teamProjects.map((project, index) => (
-          <ProjectCard key={index} title={project.title} description={project.description} />
+          <ProjectCard
+            key={index}
+            title={project.title}
+            description={project.description}
+          />
         ))}
       </div>
 
       <h3 className="project-category">🧠 Personal Projects</h3>
-      <div className="project-container">
+      <div className="projects-grid">
         {personalProjects.map((project, index) => (
-          <ProjectCard key={index} title={project.title} description={project.description} />
+          <ProjectCard
+            key={index}
+            title={project.title}
+            description={project.description}
+          />
         ))}
       </div>
 
-      {/* More Projects 버튼 */}
       <p>
         <Link to="/projects" className="more-btn">
           More Projects →

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import emailjs from 'emailjs-com';
 import Earth from '../components/Earth';
 
 function Contact() {
@@ -18,21 +19,22 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // EmailJS 연동 (나중에 YOUR_SERVICE_ID, YOUR_TEMPLATE_ID 교체 필요)
-    // emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target)
-    //   .then(() => {
-    //     alert('✈️ Message sent successfully!');
-    //     setFormData({ name: '', email: '', company: '', message: '' });
-    //   })
-    //   .catch((err) => {
-    //     console.error('Send failed:', err);
-    //     alert('❌ Failed to send message. Please try again later.');
-    //   });
 
-    // 임시 알림
-    alert('✈️ Message sent successfully! (Demo)');
-    setFormData({ name: '', email: '', company: '', message: '' });
+    // EmailJS 보내기
+    emailjs.send(
+      'service_uxf3q4b',    // EmailJS에서 발급받은 Service ID
+      'template_dm1u7za',   // EmailJS에서 만든 Template ID
+      formData,
+      '1f6kD_TMkjo3ffOIb'     // EmailJS에서 발급받은 Public Key
+    )
+    .then(() => {
+      alert('✈️ Message sent successfully!');
+      setFormData({ name: '', email: '', company: '', message: '' });
+    })
+    .catch((err) => {
+      console.error('Send failed:', err);
+      alert('❌ Failed to send message. Please try again later.');
+    });
   };
 
   return (

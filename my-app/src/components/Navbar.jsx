@@ -6,7 +6,7 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'skills', 'contact'];
+      const sections = ['home', 'about-skills', 'projects', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -53,14 +53,14 @@ function Navbar() {
           Home
         </a>
         <a
-          href="#about"
-          className={activeSection === 'about' ? 'selected' : ''}
+          href="#about/skills"
+          className={activeSection === 'about-skills' ? 'selected' : ''}
           onClick={(e) => {
             e.preventDefault();
-            handleClick('about');
+            handleClick('about-skills');
           }}
         >
-          About
+          About/Skills
         </a>
         <a
           href="#projects"
@@ -72,16 +72,7 @@ function Navbar() {
         >
           Projects
         </a>
-        <a
-          href="#skills"
-          className={activeSection === 'skills' ? 'selected' : ''}
-          onClick={(e) => {
-            e.preventDefault();
-            handleClick('skills');
-          }}
-        >
-          Skills
-        </a>
+        
         <a
           href="#contact"
           className={activeSection === 'contact' ? 'selected' : ''}

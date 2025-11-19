@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import profileImg from '../assets/images/Profile1.jpeg';
 
-// ★ 핵심 수정: greetings 배열을 컴포넌트 밖으로 뺐습니다.
-// 이제 리액트는 이것을 변하지 않는 고정값으로 인식하여 경고를 띄우지 않습니다.
 const greetings = ["Hello🙋", "안녕하세요👋"];
 
 function Home() {
@@ -19,7 +17,7 @@ function Home() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []); // 빈 배열 []만 있어도 경고가 뜨지 않습니다.
+  }, []);
 
   return (
     <section id="home" className="home">
