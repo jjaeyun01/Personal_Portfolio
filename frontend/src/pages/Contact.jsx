@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import emailjs from 'emailjs-com';
 import Earth from '../components/Earth';
 
 function Contact() {
@@ -17,25 +16,28 @@ function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // EmailJS 보내기
-    emailjs.send(
-      'service_uxf3q4b',    // EmailJS에서 발급받은 Service ID
-      'template_dm1u7za',   // EmailJS에서 만든 Template ID
-      formData,
-      '1f6kD_TMkjo3ffOIb'     // EmailJS에서 발급받은 Public Key
-    )
-    .then(() => {
-      alert('✈️ Message sent successfully!');
-      setFormData({ name: '', email: '', company: '', message: '' });
-    })
-    .catch((err) => {
-      console.error('Send failed:', err);
-      alert('❌ Failed to send message. Please try again later.');
-    });
+    try {
+      const res = await fetch("http://localhost:5001/api/email/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        alert("Email sent successfully!");
+      } else {
+        alert("Failed to send email");
+      }
+    } catch (err) {
+      console.error("Email Error:", err);
+    }
   };
+
 
   return (
     <section id="contact" className="contact-section">

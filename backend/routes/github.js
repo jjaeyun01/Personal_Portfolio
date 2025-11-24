@@ -2,24 +2,18 @@ import express from "express";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
 
-dotenv.config(); // 👈 이거 반드시 필요!
+// .env 파일 내에 있는 GITHUB_TOKEN 불러오는 기능
+dotenv.config();
 
 const router = express.Router();
 
+// TOKEN 가져오는 역할
 const TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_USERNAME = "jjaeyun01";
 
-console.log("🔑 TOKEN INSIDE ROUTER:", TOKEN ? TOKEN.substring(0, 10) + "..." : "None");
-
+// 깃허브 API GET 요청 처리
 router.get("/repos", async (req, res) => {
   try {
-    // 토큰 확인용 로그
-    console.log("🔑 Current Token:", TOKEN ? TOKEN.substring(0, 10) + "..." : "None");
-
-    if (!TOKEN) {
-      return res.status(500).json({ error: "GitHub token is missing in backend" });
-    }
-
     // 1) Repo 목록 가져오기
     const response = await fetch(
       `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated`,
@@ -62,13 +56,14 @@ router.get("/repos", async (req, res) => {
           console.error(`Language fetch error for ${repo.name}:`, err);
         }
 
+        // Github API에서 받아온 repo 데이터를 필요한 형태로 가공한 후 리턴
         return {
           id: repo.id,
           name: repo.name,
           description: repo.description,
           url: repo.html_url,
           homepage: repo.homepage,
-          languages, // 배열 형태 (예: ["JavaScript", "HTML"])
+          languages,
         };
       })
     );
