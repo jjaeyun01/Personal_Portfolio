@@ -1,9 +1,5 @@
 import express from "express";
 import fetch from "node-fetch";
-import dotenv from "dotenv";
-
-// .env 파일 내에 있는 GITHUB_TOKEN 불러오는 기능
-dotenv.config();
 
 const router = express.Router();
 

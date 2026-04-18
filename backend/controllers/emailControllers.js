@@ -1,7 +1,4 @@
 import nodemailer from "nodemailer";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 export const sendEmail = async (req, res) => {
   const { name, email, company, message } = req.body;
@@ -10,19 +7,28 @@ export const sendEmail = async (req, res) => {
     return res.status(400).json({ error: "Missing required fields" });
   }
 
+  const emailUser = process.env.EMAIL_USER;
+  const emailPass = process.env.EMAIL_PASS;
+  if (!emailUser || !emailPass) {
+    return res.status(503).json({
+      error: "Email is not configured",
+      hint: "Set EMAIL_USER and EMAIL_PASS in the project root .env file",
+    });
+  }
+
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: emailUser,
+        pass: emailPass,
       },
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,   // Gmail SMTP 규칙
+      from: emailUser,   // Gmail SMTP 규칙
       replyTo: email,
-      to: process.env.EMAIL_USER,
+      to: emailUser,
       subject: `📩 New message from ${name}`,
       text: `
 Name: ${name}

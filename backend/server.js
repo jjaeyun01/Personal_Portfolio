@@ -1,11 +1,9 @@
+import "./loadEnv.js";
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 
 import githubRouter from "./routes/github.js";
 import emailRouter from "./routes/email.js";
-
-dotenv.config();
 
 const app = express();
 

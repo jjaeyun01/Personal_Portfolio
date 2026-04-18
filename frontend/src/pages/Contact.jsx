@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Earth from '../components/Earth';
 
 function Contact() {
@@ -8,16 +8,24 @@ function Contact() {
     company: '',
     message: ''
   });
+  const [status, setStatus] = useState(null); // 'success' | 'error' | null
+  const [senderPos, setSenderPos] = useState(null);
+  const [sendKey, setSendKey] = useState(0);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (pos) => setSenderPos({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+      () => setSenderPos(null)
+    );
+  }, []);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus(null);
 
     try {
       const res = await fetch("http://localhost:5001/api/email/send", {
@@ -29,15 +37,18 @@ function Contact() {
       const data = await res.json();
 
       if (data.success) {
-        alert("Email sent successfully!");
+        setStatus('success');
+        setSendKey((k) => k + 1);
+        setFormData({ name: '', email: '', company: '', message: '' });
+        setTimeout(() => setStatus(null), 5000);
       } else {
-        alert("Failed to send email");
+        setStatus('error');
       }
     } catch (err) {
       console.error("Email Error:", err);
+      setStatus('error');
     }
   };
-
 
   return (
     <section id="contact" className="contact-section">
@@ -92,13 +103,20 @@ function Contact() {
             </button>
           </form>
 
+          {status === 'success' && (
+            <p className="form-status success">Message sent! Your letter is on its way to Madison ✉️</p>
+          )}
+          {status === 'error' && (
+            <p className="form-status error">Failed to send. Please try again.</p>
+          )}
+
           <a href="/Jaeyoon_Lee_Resume.pdf" className="resume-btn" download>
             📄 Download Resume
           </a>
         </div>
 
         <div className="globe-container">
-          <Earth />
+          <Earth senderPos={senderPos} sendKey={sendKey} />
         </div>
       </div>
     </section>

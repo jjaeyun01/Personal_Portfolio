@@ -347,13 +347,31 @@ nav .logo {
 }
 
 .globe-container {
-  width: 400px;
-  height: 400px;
+  width: 520px;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#earthCanvas {
-  width: 100%;
-  height: 100%;
+.form-status {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.form-status.success {
+  background: rgba(108, 99, 255, 0.15);
+  color: #a78bfa;
+  border: 1px solid rgba(108, 99, 255, 0.3);
+}
+
+.form-status.error {
+  background: rgba(255, 80, 80, 0.1);
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 80, 80, 0.3);
 }
 
 .more-projects {
