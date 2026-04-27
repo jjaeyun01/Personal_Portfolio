@@ -1,23 +1,17 @@
 import { useState, useEffect } from 'react';
-import Earth from '../components/Earth';
 
-function Contact() {
+function Contact({ setSenderPos, setSendKey }) {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: ''
+    name: '', email: '', company: '', message: '',
   });
-  const [status, setStatus] = useState(null); // 'success' | 'error' | null
-  const [senderPos, setSenderPos] = useState(null);
-  const [sendKey, setSendKey] = useState(0);
+  const [status, setStatus] = useState(null);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (pos) => setSenderPos({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
       () => setSenderPos(null)
     );
-  }, []);
+  }, [setSenderPos]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,16 +20,13 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus(null);
-
     try {
       const res = await fetch("http://localhost:5001/api/email/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       const data = await res.json();
-
       if (data.success) {
         setStatus('success');
         setSendKey((k) => k + 1);
@@ -52,10 +43,13 @@ function Contact() {
 
   return (
     <section id="contact" className="contact-section">
-      <div className="contact-container">
+      <div className="contact-inner">
         <div className="contact-form">
-          <h1>Contact Me</h1>
+          <h2>Contact Me</h2>
           <p>Have an opportunity or question? Send me a message ✉️</p>
+          <p className="contact-globe-hint">
+            Watch the globe on the right — your message will fly to Madison 🌏
+          </p>
 
           <form id="contactForm" onSubmit={handleSubmit}>
             <label>Name</label>
@@ -96,7 +90,7 @@ function Contact() {
               value={formData.message}
               onChange={handleChange}
               required
-            ></textarea>
+            />
 
             <button type="submit" className="send-btn">
               Send Message ✈️
@@ -113,10 +107,6 @@ function Contact() {
           <a href="/Jaeyoon_Lee_Resume.pdf" className="resume-btn" download>
             📄 Download Resume
           </a>
-        </div>
-
-        <div className="globe-container">
-          <Earth senderPos={senderPos} sendKey={sendKey} />
         </div>
       </div>
     </section>
